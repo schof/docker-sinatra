@@ -2,12 +2,11 @@ FROM rlister/ruby:2.1.5
 
 MAINTAINER schof "https://github.com/schof"
 
-RUN apt-get install -y --force-yes build-essential wget git
-
-# Install packages for ssl
 RUN apt-get update
-RUN apt-get install -y --force-yes zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
-RUN apt-get clean
+RUN apt-get install -y make
+RUN apt-get install -y gcc
+RUN apt-get install -y libxslt-dev libxml2-dev
+RUN apt-get install -y wget git-core
 
 RUN gem update --system
 RUN gem install bundler
